@@ -93,47 +93,70 @@ Led_matrix_layout nine_layout = {
     {COLOR,COLOR,COLOR,COLOR,COLOR},
 };
 
+Led_matrix_layout off_layout = {
+    {OFF,OFF,OFF,OFF,OFF},
+    {OFF,OFF,OFF,OFF,OFF},
+    {OFF,OFF,OFF,OFF,OFF},
+    {OFF,OFF,OFF,OFF,OFF},
+    {OFF,OFF,OFF,OFF,OFF},
+};
+
 Led_matrix_layout* get_number_layout(int number){
-    switch (number)
-    {
-    case 1:
-        return &one_layout;
-    break;
-
-    case 2:
-        return &two_layout;
-    break;
-
-    case 3:
-        return &three_layout;
-    break;
-
-    case 4:
-        return &four_layout;
-    break;
-
-    case 5:
-        return &five_layout;
-    break;
-
-    case 6:
-        return &six_layout;
-    break;
-
-    case 7:
-        return &seven_layout;
-    break;
-
-    case 8:
-        return &eight_layout;
-    break;
-
-    case 9:
-        return &nine_layout;
-    break;
+    static Led_matrix_layout* default_layout = &off_layout;
     
-    default:
-    return &zero_layout;
+    switch (number){
+        case 0:
+            default_layout = &zero_layout;
+            return &zero_layout;
+        break;
+
+        case 1:
+            default_layout = &one_layout;
+            return &one_layout;
+        break;
+
+        case 2:
+            default_layout = &two_layout;
+            return &two_layout;
+        break;
+
+        case 3:
+            default_layout = &three_layout;
+            return &three_layout;
+        break;
+
+        case 4:
+            default_layout = &four_layout;
+            return &four_layout;
+        break;
+
+        case 5:
+            default_layout = &five_layout;
+            return &five_layout;
+        break;
+
+        case 6:
+            default_layout = &six_layout;
+            return &six_layout;
+        break;
+
+        case 7:
+            default_layout = &seven_layout;
+            return &seven_layout;
+        break;
+
+        case 8:
+            default_layout = &eight_layout;
+            return &eight_layout;
+        break;
+
+        case 9:
+            default_layout = &nine_layout;
+            return &nine_layout;
+        break;
+        
+        default:
+            return default_layout;
         break;
     }
 }
