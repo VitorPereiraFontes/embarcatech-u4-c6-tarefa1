@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
+#include "interruption.h"
 
 #define RED_LED_PIN 13 // GPIO que controla o LED vermelho
 #define GREEN_LED_PIN 11 // GPIO que controla o LED verde
@@ -14,10 +15,14 @@
 #define DISPLAY_I2C_SCL_PIN  15 // GPIO conectada ao pino Serial Clock do display
 #define DISPLAY_I2C_ADDRESS 0x3C // Endereço I2C do Display
 #define DISPLAY_CLOCK_FREQUENCY 400 * 1000 // Define a frequência de clock do display em KHz (400KHz)
+#define LED_RGB_MASK 1 << RED_LED_PIN | 1 << GREEN_LED_PIN | 1 << BLUE_LED_PIN // Mascara de bits para inicializar o LED RGB
+#define LED_RGB_GPIO_DIR_MASK 1 << RED_LED_PIN | 1 << GREEN_LED_PIN | 1 << BLUE_LED_PIN // Mascara de bits para configurar o LED RGB como saída
 
-int main()
-{
+int main(){
     stdio_init_all(); // Inicializa a comunicação serial via USB
+
+    gpio_init_mask(LED_RGB_MASK); // Inicializa o LED RGB
+    gpio_set_dir_masked(LED_RGB_MASK,LED_RGB_GPIO_DIR_MASK); // Coloca todos os pinos do LED RGB como saída em nível baixo
 
     while (true) {
         printf("Hello, world!\n");
