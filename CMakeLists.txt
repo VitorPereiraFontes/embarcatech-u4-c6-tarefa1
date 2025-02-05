@@ -36,7 +36,7 @@ pico_sdk_init()
 # Add executable. Default name is the project name, version 0.1
 
 add_executable(embarcatech-u4-c6-tarefa1
-    embarcatech-u4-c6-tarefa1.c
+    src/main.c
     src/matriz_leds.c
     src/interruption.c
     src/ssd1306.c
