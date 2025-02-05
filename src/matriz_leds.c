@@ -9,88 +9,88 @@
 #include "pio_matrix.pio.h"
 
 // Definindo a cor padrão dos leds
-#define WHITE_COLOR (RGB_color){1.0, 1.0, 1.0}
+#define COLOR (RGB_color){1.0, 1.0, 1.0}
 #define OFF (RGB_color){0.0, 0.0, 0.0}
 
 // Definindo a estética dos números
 Led_matrix_layout zero_layout = {
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
 };
 
 Led_matrix_layout one_layout = {
-    {OFF,OFF,OFF,OFF,WHITE_COLOR},
-    {OFF,OFF,OFF,OFF,WHITE_COLOR},
-    {OFF,OFF,OFF,OFF,WHITE_COLOR},
-    {OFF,OFF,OFF,OFF,WHITE_COLOR},
-    {OFF,OFF,OFF,OFF,WHITE_COLOR},
+    {OFF,OFF,OFF,OFF,COLOR},
+    {OFF,OFF,OFF,OFF,COLOR},
+    {OFF,OFF,OFF,OFF,COLOR},
+    {OFF,OFF,OFF,OFF,COLOR},
+    {OFF,OFF,OFF,OFF,COLOR},
 };
 
 Led_matrix_layout two_layout = {
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {OFF        ,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,OFF        },
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {OFF  ,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,  OFF},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
 };
 
 Led_matrix_layout three_layout = {
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {OFF        ,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {OFF        ,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {OFF  ,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {OFF  ,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
 };
 
 Led_matrix_layout four_layout = {
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {OFF        ,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {OFF        ,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {OFF  ,OFF  ,OFF  ,OFF  ,COLOR},
+    {OFF  ,OFF  ,OFF  ,OFF  ,COLOR},
 };
 
 Led_matrix_layout five_layout = {
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,OFF        },
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {OFF        ,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,OFF  },
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {OFF  ,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
 };
 
 Led_matrix_layout six_layout = {
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,OFF        },
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,OFF  },
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
 };
 
 Led_matrix_layout seven_layout = {
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {OFF        ,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {OFF        ,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {OFF  ,OFF  ,OFF  ,OFF  ,COLOR},
+    {OFF  ,OFF  ,OFF  ,OFF  ,COLOR},
 };
 
 Led_matrix_layout eight_layout = {
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
 };
 
 Led_matrix_layout nine_layout = {
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {WHITE_COLOR,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
-    {OFF        ,OFF        ,OFF        ,OFF        ,WHITE_COLOR},
-    {WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR,WHITE_COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {COLOR,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
+    {OFF  ,OFF  ,OFF  ,OFF  ,COLOR},
+    {COLOR,COLOR,COLOR,COLOR,COLOR},
 };
 
 Led_matrix_layout* get_number_layout(int number){
