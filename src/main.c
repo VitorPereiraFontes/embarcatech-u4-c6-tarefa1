@@ -2,6 +2,7 @@
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
 #include "interruption.h"
+#include "matriz_leds.h"
 
 #define RED_LED_PIN 13 // GPIO que controla o LED vermelho
 #define GREEN_LED_PIN 11 // GPIO que controla o LED verde
@@ -58,6 +59,8 @@ void buttons_irq_handler(uint gpio, uint32_t events){
     }
 }
 
+PIO pio = pio0;
+
 int main(){
     stdio_init_all(); // Inicializa a comunicação serial via USB
 
@@ -66,8 +69,28 @@ int main(){
 
     initialize_buttons(BUTTON_A_PIN,BUTTON_B_PIN,buttons_irq_handler); // Inicializa e configura a interrupção para os botões A e B
 
+    uint sm = initialize_matrix(pio,LED_MATRIX_PIN);
+
     while (true) {
-        printf("Hello, world!\n");
-        sleep_ms(1000);
+        // Verifica se o USB está conectado
+        if (stdio_usb_connected()){
+            char character;
+
+            // verifica se recebeu algum dado via USB Serial
+            if(scanf("%c",&character) == 1){
+                printf("O caractere recebido foi: %c - %d\n",character,(int) character);
+
+                // Verifica se o caractere é um número
+                if (character >= '0' && character <= '9') {
+                    // Converte o caractere ASCII para inteiro, já que a diferença entre o valor ASCII de um digito numérico e o valor ASCII de '0' é o valor numérico do dígito.
+                    int number = character - '0';
+                
+                    draw_on_matrix((*get_number_layout(number)),pio,sm); // Desenha o número informado na matriz de LED's
+                }
+            }
+        }
+
+        //printf("Hello, world!\n");
+        sleep_ms(50);
     }
 }
