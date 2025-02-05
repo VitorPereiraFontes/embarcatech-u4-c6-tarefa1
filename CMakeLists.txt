@@ -35,7 +35,11 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(embarcatech-u4-c6-tarefa1 embarcatech-u4-c6-tarefa1.c )
+add_executable(embarcatech-u4-c6-tarefa1 embarcatech-u4-c6-tarefa1.c src/matriz_leds.c )
+
+# Generate PIO header
+
+pico_generate_pio_header(embarcatech-u4-c6-tarefa1 ${CMAKE_CURRENT_LIST_DIR}/pio_matrix.pio)
 
 pico_set_program_name(embarcatech-u4-c6-tarefa1 "embarcatech-u4-c6-tarefa1")
 pico_set_program_version(embarcatech-u4-c6-tarefa1 "0.1")
@@ -55,8 +59,8 @@ target_include_directories(embarcatech-u4-c6-tarefa1 PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(embarcatech-u4-c6-tarefa1 
-        
-        )
+    hardware_pio        
+)
 
 pico_add_extra_outputs(embarcatech-u4-c6-tarefa1)
 
