@@ -39,6 +39,7 @@ add_executable(embarcatech-u4-c6-tarefa1
     embarcatech-u4-c6-tarefa1.c
     src/matriz_leds.c
     src/interruption.c
+    src/ssd1306.c
 )
 
 # Generate PIO header
@@ -64,6 +65,7 @@ target_include_directories(embarcatech-u4-c6-tarefa1 PRIVATE
 # Add any user requested libraries
 target_link_libraries(embarcatech-u4-c6-tarefa1 
     hardware_pio
+    hardware_i2c
 )
 
 pico_add_extra_outputs(embarcatech-u4-c6-tarefa1)
