@@ -45,7 +45,7 @@ void buttons_irq_handler(uint gpio, uint32_t events){
             case BUTTON_B_PIN:
                 static volatile bool blue_led_on = false; // Variável que controla o estado do LED verde
 
-                printf("Botão B pressionado! Alterando o estado do LED verde...\n");
+                printf("Botão B pressionado! Alterando o estado do LED azul...\n");
 
                 gpio_put(BLUE_LED_PIN,!blue_led_on); // Acendendo/Desligando o LED verde
 
