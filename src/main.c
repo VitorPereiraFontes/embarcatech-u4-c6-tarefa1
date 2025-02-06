@@ -74,6 +74,21 @@ int main(){
 
     uint sm = initialize_matrix(pio,LED_MATRIX_PIN); // Inicializa a matriz de LED's
 
+    i2c_init(I2C_PORT, DISPLAY_CLOCK_FREQUENCY); // Inicializa a comunicação I2C
+
+    gpio_set_function(DISPLAY_I2C_SDA_PIN,GPIO_FUNC_I2C); // Diz ao microcontrolador para usar o pino para comunicação I2C
+    gpio_set_function(DISPLAY_I2C_SCL_PIN,GPIO_FUNC_I2C); // Diz ao microcontrolador para usar o pino para comunicação I2C
+    gpio_pull_up(DISPLAY_I2C_SCL_PIN); // Configura um resistor de pull-up para o pino, conforme as intruções do protocolo I2C
+    gpio_pull_up(DISPLAY_I2C_SDA_PIN); // Configura um resistor de pull-up para o pino, conforme as intruções do protocolo I2C
+
+    ssd1306_init(&display, WIDTH, HEIGHT, false, DISPLAY_I2C_ADDRESS, I2C_PORT); // Inicializa o display
+    ssd1306_config(&display); // Configura o display
+    ssd1306_send_data(&display); // Envia os dados para o display
+
+    // Limpa o display. O display inicia com todos os pixels apagados.
+    ssd1306_fill(&display, false);
+    ssd1306_send_data(&display);
+
     while (true) {
         // Verifica se o USB está conectado
         if (stdio_usb_connected()){
