@@ -181,7 +181,7 @@ uint initialize_matrix(PIO pio, uint led_matrix_pin){
     // Inicializa todos os códigos stdio padrão que estão ligados ao binário.
     stdio_init_all();
 
-    printf("iniciando a transmissão PIO");
+    printf("iniciando a transmissão PIO\n");
     if (ok) printf("clock set to %ld\n", clock_get_hz(clk_sys));
 
     //configurações da PIO
