@@ -64,6 +64,22 @@ void buttons_irq_handler(uint gpio, uint32_t events){
     }
 }
 
+// Desenha e atualiza o conteúdo do display
+void update_display_data(ssd1306_t* display, bool color, bool fill, bool green_led, bool blue_led, char last_char_inputed){
+    char char_message[50], green_led_message[50], blue_led_message[50];
+    
+    sprintf(char_message,"Ultimo char %c",last_char_inputed);
+    sprintf(green_led_message,"LED verde %s", green_led ? "on" : "off");
+    sprintf(blue_led_message,"LED azul %s", blue_led ? "on" : "off");
+    
+    ssd1306_fill(display, fill); // Limpa o display
+    ssd1306_rect(display, 2, 2, 126, 62, color, fill); // Desenha um retângulo
+    ssd1306_draw_string(display, char_message, 8, 16); // Desenha uma string
+    ssd1306_draw_string(display, green_led_message, 8, 32); // Desenha uma string
+    ssd1306_draw_string(display, blue_led_message, 8, 48); // Desenha uma string      
+    ssd1306_send_data(display); // Atualiza o display
+}
+
 int main(){
     stdio_init_all(); // Inicializa a comunicação serial via USB
 
