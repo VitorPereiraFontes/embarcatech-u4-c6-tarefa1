@@ -9,7 +9,7 @@
 #include "pio_matrix.pio.h"
 
 // Definindo a cor padrão dos leds
-#define COLOR (RGB_color){1.0, 1.0, 1.0}
+#define COLOR (RGB_color){0.0, 0.0, 1.0}
 #define OFF (RGB_color){0.0, 0.0, 0.0}
 
 // Definindo a estética dos números
