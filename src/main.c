@@ -3,6 +3,7 @@
 #include "hardware/i2c.h"
 #include "interruption.h"
 #include "matriz_leds.h"
+#include "ssd1306.h"
 
 #define RED_LED_PIN 13 // GPIO que controla o LED vermelho
 #define GREEN_LED_PIN 11 // GPIO que controla o LED verde
@@ -18,6 +19,10 @@
 #define DISPLAY_CLOCK_FREQUENCY 400 * 1000 // Define a frequência de clock do display em KHz (400KHz)
 #define LED_RGB_MASK 1 << RED_LED_PIN | 1 << GREEN_LED_PIN | 1 << BLUE_LED_PIN // Mascara de bits para inicializar o LED RGB
 #define LED_RGB_GPIO_DIR_MASK 1 << RED_LED_PIN | 1 << GREEN_LED_PIN | 1 << BLUE_LED_PIN // Mascara de bits para configurar o LED RGB como saída
+
+PIO pio = pio0; // Define a porta PIO a ser utilizada
+ssd1306_t display; // Inicializa a estrutura do display
+bool cor; // Variável que controla se o pixel deve ser pintado no display
 
 // Função que será disparada quando a interrupção for atendida
 void buttons_irq_handler(uint gpio, uint32_t events){
@@ -59,8 +64,6 @@ void buttons_irq_handler(uint gpio, uint32_t events){
     }
 }
 
-PIO pio = pio0;
-
 int main(){
     stdio_init_all(); // Inicializa a comunicação serial via USB
 
@@ -69,7 +72,7 @@ int main(){
 
     initialize_buttons(BUTTON_A_PIN,BUTTON_B_PIN,buttons_irq_handler); // Inicializa e configura a interrupção para os botões A e B
 
-    uint sm = initialize_matrix(pio,LED_MATRIX_PIN);
+    uint sm = initialize_matrix(pio,LED_MATRIX_PIN); // Inicializa a matriz de LED's
 
     while (true) {
         // Verifica se o USB está conectado
