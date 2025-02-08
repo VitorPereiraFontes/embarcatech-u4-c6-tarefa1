@@ -22,9 +22,9 @@ O presente projeto deverá atender aos seguintes requerimentos:
 
 ## Demonstração
 
-Segue o link do vídeo de demonstração do projeto na placa BitDogLab.
+Segue o link do vídeo de demonstração do projeto na placa BitDogLab:
 
-
+https://github.com/user-attachments/assets/8ee65524-a3b0-47d4-9e9c-81712a36ac16
 
 ## Instruções
 
